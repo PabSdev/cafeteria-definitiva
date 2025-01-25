@@ -2,41 +2,52 @@ import React, { useState } from 'react'
 import { FaUser, FaLock } from 'react-icons/fa'
 import { MdEmail } from 'react-icons/md'
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth'
-import { getFirestore, doc, setDoc } from 'firebase/firestore'
-import { app } from '../firebase'
 import { useNavigate } from 'react-router-dom'
 
-const auth = getAuth(app)
-const db = getFirestore(app)
+const auth = getAuth()
 
 const RegisterPanel = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [name, setName] = useState('')
     const [phone, setPhone] = useState('')
+    const [user, setUser] = useState('') // Campo de usuario
     const [showPassword, setShowPassword] = useState(false)
     const [error, setError] = useState('')
     const navigate = useNavigate()
 
     const handleRegister = async (e) => {
         e.preventDefault()
+
         try {
+            // Registrar en Firebase
             const userCredential = await createUserWithEmailAndPassword(
                 auth,
                 email,
                 password
             )
-            const user = userCredential.user
+            const userFirebase = userCredential.user
 
-            // Save additional user information to Firestore
-            await setDoc(doc(db, 'users', user.uid), {
-                name: name,
-                email: email,
-                phone: phone,
+            // Enviar los datos al servidor para insertarlos en MySQL
+            const formData = new FormData()
+            formData.append('nombre', name)
+            formData.append('correo', email)
+            formData.append('usuario', user) // Usamos el nombre de usuario ingresado por el cliente
+            formData.append('contrasena', password)
+            formData.append('telefono', phone)
+
+            const response = await fetch('http://localhost/php/register.php', {
+                method: 'POST',
+                body: formData,
             })
 
-            alert('Registration successful')
-            navigate('/specific-page') // Redirect to the specific page
+            const result = await response.text()
+            if (result.includes('Nuevo registro creado exitosamente')) {
+                alert('Registro exitoso')
+                navigate('/specific-page') // Redirige a la página específica
+            } else {
+                setError('Error al registrar en la base de datos')
+            }
         } catch (error) {
             setError(error.message)
         }
@@ -66,13 +77,24 @@ const RegisterPanel = () => {
                 <div className="relative mb-5 w-[90%] mx-auto">
                     <input
                         type="email"
-                        placeholder="Correo Electronico"
+                        placeholder="Correo Electrónico"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         required
                         className="w-[85%] p-2.5 pl-4 pr-12 border-2 border-[#f5deb3] rounded-3xl bg-opacity-10 text-[#f5deb3] focus:border-[#a67c52] outline-none"
                     />
                     <MdEmail className="absolute right-10 top-1/2 transform -translate-y-1/2 text-[#f5deb3] opacity-80 text-xl" />
+                </div>
+                <div className="relative mb-5 w-[90%] mx-auto">
+                    <input
+                        type="text"
+                        placeholder="Usuario"
+                        value={user}
+                        onChange={(e) => setUser(e.target.value)}
+                        required
+                        className="w-[85%] p-2.5 pl-4 pr-12 border-2 border-[#f5deb3] rounded-3xl bg-opacity-10 text-[#f5deb3] focus:border-[#a67c52] outline-none"
+                    />
+                    <FaUser className="absolute right-10 top-1/2 transform -translate-y-1/2 text-[#f5deb3] opacity-80 text-xl" />
                 </div>
                 <div className="relative mb-5 w-[90%] mx-auto">
                     <input

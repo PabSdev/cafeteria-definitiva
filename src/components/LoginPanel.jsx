@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { FaUser, FaLock } from 'react-icons/fa'
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
-import { app } from '../firebase'
+import { app } from '../firebase/firebase'
 
 const auth = getAuth(app)
 

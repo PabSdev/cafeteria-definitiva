@@ -1,5 +1,4 @@
 import React from 'react'
-import Style from '../assets/style/Login.module.css'
 import LoginPanel from '../components/LoginPanel'
 
 const Login = () => {
