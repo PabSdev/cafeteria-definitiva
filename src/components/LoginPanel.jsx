@@ -1,9 +1,5 @@
 import React, { useState } from 'react'
 import { FaUser, FaLock } from 'react-icons/fa'
-import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
-import { app } from '../firebase/firebase'
-
-const auth = getAuth(app)
 
 const LoginPanel = () => {
     const [email, setEmail] = useState('')
@@ -12,11 +8,27 @@ const LoginPanel = () => {
 
     const handleLogin = async (e) => {
         e.preventDefault()
+
+        const formData = new FormData()
+        formData.append('correo', email)
+        formData.append('contrasena', password)
+
         try {
-            await signInWithEmailAndPassword(auth, email, password)
-            alert('Login successful')
+            const response = await fetch('http://localhost/php/login.php', {
+                method: 'POST',
+                body: formData,
+            })
+
+            const result = await response.text()
+
+            if (result.includes('Login exitoso')) {
+                alert('Login exitoso')
+                // Redirigir o realizar acciones posteriores al login
+            } else {
+                alert('Error en el inicio de sesión')
+            }
         } catch (error) {
-            alert(error.message)
+            alert('Error al conectar con el servidor')
         }
     }
 
