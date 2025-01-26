@@ -1,0 +1,164 @@
+{
+    "products": [
+        {
+            "id": 1,
+            "title": "Café Americano",
+            "description": "Un café negro tradicional preparado con agua caliente.",
+            "price": 2.5,
+            "discountPercentage": 5,
+            "rating": 4.8,
+            "stock": 50,
+            "brand": "Café Premium",
+            "category": "bebidas",
+            "thumbnail": "https://example.com/images/cafe-americano.jpg",
+            "images": [
+                "https://example.com/images/cafe-americano1.jpg",
+                "https://example.com/images/cafe-americano2.jpg"
+            ]
+        },
+        {
+            "id": 2,
+            "title": "Café Latte",
+            "description": "Café con leche espumada, ideal para cualquier momento del día.",
+            "price": 3.0,
+            "discountPercentage": 7,
+            "rating": 4.7,
+            "stock": 40,
+            "brand": "Café Gourmet",
+            "category": "bebidas",
+            "thumbnail": "https://example.com/images/cafe-latte.jpg",
+            "images": [
+                "https://example.com/images/cafe-latte1.jpg",
+                "https://example.com/images/cafe-latte2.jpg"
+            ]
+        },
+        {
+            "id": 3,
+            "title": "Cappuccino",
+            "description": "Café con leche y espuma, decorado con cacao en polvo.",
+            "price": 3.5,
+            "discountPercentage": 6,
+            "rating": 4.9,
+            "stock": 45,
+            "brand": "Café Italiano",
+            "category": "bebidas",
+            "thumbnail": "https://example.com/images/cappuccino.jpg",
+            "images": [
+                "https://example.com/images/cappuccino1.jpg",
+                "https://example.com/images/cappuccino2.jpg"
+            ]
+        },
+        {
+            "id": 4,
+            "title": "Croissant",
+            "description": "Hojaldre francés, fresco y mantecoso.",
+            "price": 2.0,
+            "discountPercentage": 10,
+            "rating": 4.6,
+            "stock": 30,
+            "brand": "Panadería Gourmet",
+            "category": "reposteria",
+            "thumbnail": "https://example.com/images/croissant.jpg",
+            "images": [
+                "https://example.com/images/croissant1.jpg",
+                "https://example.com/images/croissant2.jpg"
+            ]
+        },
+        {
+            "id": 5,
+            "title": "Panini de Jamón y Queso",
+            "description": "Panini caliente con jamón serrano y queso derretido.",
+            "price": 4.5,
+            "discountPercentage": 8,
+            "rating": 4.7,
+            "stock": 20,
+            "brand": "Bocadillos Artesanales",
+            "category": "alimentos",
+            "thumbnail": "https://example.com/images/panini-jamon-queso.jpg",
+            "images": [
+                "https://example.com/images/panini-jamon-queso1.jpg",
+                "https://example.com/images/panini-jamon-queso2.jpg"
+            ]
+        },
+        {
+            "id": 6,
+            "title": "Té Verde",
+            "description": "Té verde puro, antioxidante y relajante.",
+            "price": 2.0,
+            "discountPercentage": 4,
+            "rating": 4.5,
+            "stock": 35,
+            "brand": "Infusiones Naturales",
+            "category": "bebidas",
+            "thumbnail": "https://example.com/images/te-verde.jpg",
+            "images": [
+                "https://example.com/images/te-verde1.jpg",
+                "https://example.com/images/te-verde2.jpg"
+            ]
+        },
+        {
+            "id": 7,
+            "title": "Cheesecake de Fresa",
+            "description": "Pastel de queso cremoso con mermelada de fresa.",
+            "price": 3.75,
+            "discountPercentage": 5,
+            "rating": 4.8,
+            "stock": 25,
+            "brand": "Postres Caseros",
+            "category": "reposteria",
+            "thumbnail": "https://example.com/images/cheesecake-fresa.jpg",
+            "images": [
+                "https://example.com/images/cheesecake-fresa1.jpg",
+                "https://example.com/images/cheesecake-fresa2.jpg"
+            ]
+        },
+        {
+            "id": 8,
+            "title": "Brownie de Chocolate",
+            "description": "Brownie denso y húmedo con trozos de chocolate.",
+            "price": 3.25,
+            "discountPercentage": 7,
+            "rating": 4.9,
+            "stock": 30,
+            "brand": "Dulces Artesanales",
+            "category": "reposteria",
+            "thumbnail": "https://example.com/images/brownie-chocolate.jpg",
+            "images": [
+                "https://example.com/images/brownie-chocolate1.jpg",
+                "https://example.com/images/brownie-chocolate2.jpg"
+            ]
+        },
+        {
+            "id": 9,
+            "title": "Sandwich Club",
+            "description": "Sandwich con pollo, tocino, lechuga y mayonesa.",
+            "price": 5.5,
+            "discountPercentage": 6,
+            "rating": 4.6,
+            "stock": 20,
+            "brand": "Bocadillos Frescos",
+            "category": "alimentos",
+            "thumbnail": "https://example.com/images/sandwich-club.jpg",
+            "images": [
+                "https://example.com/images/sandwich-club1.jpg",
+                "https://example.com/images/sandwich-club2.jpg"
+            ]
+        },
+        {
+            "id": 10,
+            "title": "Tarta de Manzana",
+            "description": "Tarta crujiente con relleno dulce de manzana.",
+            "price": 3.5,
+            "discountPercentage": 5,
+            "rating": 4.7,
+            "stock": 25,
+            "brand": "Postres Tradicionales",
+            "category": "reposteria",
+            "thumbnail": "https://example.com/images/tarta-manzana.jpg",
+            "images": [
+                "https://example.com/images/tarta-manzana1.jpg",
+                "https://example.com/images/tarta-manzana2.jpg"
+            ]
+        }
+    ]
+}
