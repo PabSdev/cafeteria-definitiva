@@ -1,10 +1,7 @@
 import React, { useState } from 'react'
 import { FaUser, FaLock } from 'react-icons/fa'
 import { MdEmail } from 'react-icons/md'
-import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth'
 import { useNavigate } from 'react-router-dom'
-
-const auth = getAuth()
 
 const RegisterPanel = () => {
     const [email, setEmail] = useState('')
@@ -20,14 +17,6 @@ const RegisterPanel = () => {
         e.preventDefault()
 
         try {
-            // Registrar en Firebase
-            const userCredential = await createUserWithEmailAndPassword(
-                auth,
-                email,
-                password
-            )
-            const userFirebase = userCredential.user
-
             // Enviar los datos al servidor para insertarlos en MySQL
             const formData = new FormData()
             formData.append('nombre', name)
@@ -49,7 +38,7 @@ const RegisterPanel = () => {
                 setError('Error al registrar en la base de datos')
             }
         } catch (error) {
-            setError(error.message)
+            setError('Error de conexión con el servidor')
         }
     }
 

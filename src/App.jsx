@@ -1,20 +1,25 @@
-import Home from '../src/public/Home'
+import React from 'react'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import Home from './public/Home'
 import Login from './public/Login'
 import Register from './public/Register'
-import Carrito from './public/CarritoDeLaCompra'
-import React from 'react'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Productos from './public/Products'
+import Dashboard from './private/dashboard'
 
 function App() {
     return (
-        <BrowserRouter>
-            <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/Login" element={<Login />} />
-                <Route path="/Register" element={<Register />} />
-                <Route path="/Carrito" element={<Carrito />}></Route>
-            </Routes>
-        </BrowserRouter>
+        <Router>
+            <div className="App">
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/register" element={<Register />} />
+                    <Route path="/productos" element={<Productos />} />
+                    <Route path="/dashboard" element={<Dashboard />} />
+                </Routes>
+                <Cart />
+            </div>
+        </Router>
     )
 }
 
