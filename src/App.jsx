@@ -5,6 +5,7 @@ import Login from './public/Login'
 import Register from './public/Register'
 import Productos from './public/Products'
 import Dashboard from './private/dashboard'
+import Carrito from './private/Carrito'
 
 function App() {
     return (
@@ -16,8 +17,8 @@ function App() {
                     <Route path="/register" element={<Register />} />
                     <Route path="/productos" element={<Productos />} />
                     <Route path="/dashboard" element={<Dashboard />} />
+                    <Route path="/Carrito" element={<Carrito />}></Route>
                 </Routes>
-                <Cart />
             </div>
         </Router>
     )
